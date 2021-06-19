@@ -16,17 +16,12 @@ void removespaco(char *aux){
     }
     aux[j]='\0';
 }
+void uplower(char *aux){
 
-int main(){
-
-    char nome[200]={0},aux[200]={0};
-    int val=0,i=0;
-
-    printf("Escreva o seu nome completo: ");
-    fgets(aux,sizeof(aux),stdin);
+    int i=0,val;
     val=strlen(aux);
 
-    for(i=0;i<sizeof(aux);i++){
+    for(i=0;i<=val;i++){
         if (i==0)
            aux[i]=toupper(aux[i]);
         else
@@ -34,11 +29,20 @@ int main(){
         while(aux[i]==' '){
             i++;
         }
-        if(aux[i-1]==' ')
+        if(aux[i-1]==' ' && aux[i]!=' ')
             aux[i]=toupper(aux[i]);
 
         }
+}
 
+
+int main(){
+
+    char nome[200]={0},aux[200]={0};
+
+    printf("Escreva o seu nome completo: ");
+    fgets(aux,sizeof(aux),stdin);
+    uplower(aux);
     removespaco(aux);
     puts(aux);
 
