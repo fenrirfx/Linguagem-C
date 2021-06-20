@@ -3,18 +3,20 @@
 # include <stdlib.h>
 # include <ctype.h>
 
-void removespaco(char *aux){
+char rmvesp(char * aux, char *nome, int size){
 
-    int j=0;
-    char ult='\0';
-    for (int i=0;aux[i] != '\0';i++){
-        if (aux[i]!=' ' || ult!=' '){
-            aux[j]=aux[i];
+    int i=0,j=0;
+    for(i=0;i<=size;i++){
+        if(aux[i]!=' '){
+            nome[j]=aux[i];
             j++;
-            ult = aux[i];
+        }
+        if(aux[i]==' ' & aux[i-1]!=' '){
+            nome[j]=aux[i];
+            j++;
         }
     }
-    aux[j]='\0';
+    puts(nome);
 }
 void uplower(char *aux){
 
@@ -39,11 +41,13 @@ void uplower(char *aux){
 int main(){
 
     char nome[200]={0},aux[200]={0};
+    int val;
 
     printf("Escreva o seu nome completo: ");
     fgets(aux,sizeof(aux),stdin);
+    val=strlen(aux);
     uplower(aux);
-    removespaco(aux);
+    rmvesp(aux,nome,val);
     puts(aux);
 
 
