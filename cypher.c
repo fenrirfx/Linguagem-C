@@ -5,20 +5,25 @@
 #include <time.h>
 #include <locale.h>
 
-void cypher(char *nome, int size){ // faz random do numero de posiÁoes da string e converte para char novamente e d· output
+void cypher(char *nome, int size){ // faz random do numero de posi√ßoes da string e converte para char novamente e d√° output
 
-    int random,min=65,max=122;
-    int aux[50]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},i=0;
+    int min=65,max=122,i=0;
+    int random[50]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
     for(i=0;i<size-1;i++){
-        random=(rand() %(min-max-1))+min;
-        aux[i]=random;
+        random[i]=(rand() %(min-max-1))+min;
+        nome[i]=(int)nome[i]+random[i];
     }
     printf("Nome em Cifra: ");
     for(i=0;i<size-1;i++){
-        aux[i]=(char)aux[i];
-        printf("%c",aux[i]);
+        printf("%c",nome[i]);
     }
+    printf("\nNome sem Cifra: ");
+    for(i=0;i<size-1;i++){
+        nome[i]=(int)nome[i]-random[i];
+        printf("%c", nome[i]);
+    }
+
 }
 int main(){
 
