@@ -20,13 +20,13 @@ void inserir(){
     if (cont<DIM-1){
         if (n<=(DIM-cont)){
             for(int i=0;i<n;i++){
-                printf("%dº registo\n",i+1);
+                printf("%dº registo\n",cont+1);
 
                 printf("Nome: ");
-                getstr(formandos[i].nome,51);
+                getstr(formandos[cont].nome,51);
             do
                 printf("Idade: ");
-            while(!getint(&formandos[i].idade));
+            while(!getint(&formandos[cont].idade));
             fflush(stdin);
             cont++;
             }
